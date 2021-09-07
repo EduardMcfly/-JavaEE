@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateClientsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateClientsLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{clientsController.selected.id}" title="#{bundle.CreateClientsTitle_id}" required="true" requiredMessage="#{bundle.CreateClientsRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.CreateClientsLabel_type}" for="type" />
+                    <h:inputText id="type" value="#{clientsController.selected.type}" title="#{bundle.CreateClientsTitle_type}" />
+                    <h:outputLabel value="#{bundle.CreateClientsLabel_name}" for="name" />
+                    <h:inputText id="name" value="#{clientsController.selected.name}" title="#{bundle.CreateClientsTitle_name}" />
+                    <h:outputLabel value="#{bundle.CreateClientsLabel_lastName}" for="lastName" />
+                    <h:inputText id="lastName" value="#{clientsController.selected.lastName}" title="#{bundle.CreateClientsTitle_lastName}" />
+                    <h:outputLabel value="#{bundle.CreateClientsLabel_userId}" for="userId" />
+                    <h:inputText id="userId" value="#{clientsController.selected.userId}" title="#{bundle.CreateClientsTitle_userId}" />
+                    <h:outputLabel value="#{bundle.CreateClientsLabel_password}" for="password" />
+                    <h:inputText id="password" value="#{clientsController.selected.password}" title="#{bundle.CreateClientsTitle_password}" />
+                    <h:outputLabel value="#{bundle.CreateClientsLabel_phoneNumber}" for="phoneNumber" />
+                    <h:inputText id="phoneNumber" value="#{clientsController.selected.phoneNumber}" title="#{bundle.CreateClientsTitle_phoneNumber}" />
+                    <h:outputLabel value="#{bundle.CreateClientsLabel_email}" for="email" />
+                    <h:inputText id="email" value="#{clientsController.selected.email}" title="#{bundle.CreateClientsTitle_email}" />
+                    <h:outputLabel value="#{bundle.CreateClientsLabel_status}" for="status" />
+                    <h:inputText id="status" value="#{clientsController.selected.status}" title="#{bundle.CreateClientsTitle_status}" />
+                    <h:outputLabel value="#{bundle.CreateClientsLabel_statusClient}" for="statusClient" />
+                    <h:inputText id="statusClient" value="#{clientsController.selected.statusClient}" title="#{bundle.CreateClientsTitle_statusClient}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{clientsController.create}" value="#{bundle.CreateClientsSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{clientsController.prepareList}" value="#{bundle.CreateClientsShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateClientsIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
